@@ -3,12 +3,17 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import load_model
 import pickle
 from werkzeug.utils import secure_filename
+from flask_cors import CORS
+
+
 app = Flask(__name__)
+
+CORS(app)
 
 # Load the pickled model
 
 # load and prepare the image
-def load_image(filename):
+def load_image(filename)    :
 	# load the image
 	img = load_img(filename, target_size=(64,64))
 	# convert to array
